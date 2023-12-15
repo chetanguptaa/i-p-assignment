@@ -1,4 +1,4 @@
-const strongPasswordChecker = require("./index");
+const strongPasswordChecker = require("./first");
 
 // Unit tests using Jest
 describe("strongPasswordChecker", () => {
