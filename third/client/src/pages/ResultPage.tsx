@@ -14,12 +14,12 @@ const ResultPage = () => {
   const [results, setResults] = useState<Results>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const resultsPerPage = 3;
+  const totalRows = 3;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/results");
-        console.log(response.data);
         setResults(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -31,6 +31,26 @@ const ResultPage = () => {
   const indexOfLastResult = currentPage * resultsPerPage;
   const indexOfFirstResult = indexOfLastResult - resultsPerPage;
   const currentResults = results.slice(indexOfFirstResult, indexOfLastResult);
+
+  const renderTableRow = (result: Result | null, index: number) => (
+    <tr key={index}>
+      {result?.data ? (
+        <td className="border px-8 py-4 w-20">{result.data}</td>
+      ) : (
+        <td className="border px-8 py-7 w-20">{""}</td>
+      )}
+      {result?.result ? (
+        <td className="border px-8 py-4 w-20">{result.result}</td>
+      ) : (
+        <td className="border px-8 py-4 w-20">{""}</td>
+      )}
+    </tr>
+  );
+
+  // Create an array of rows to be rendered, with null for empty rows
+  const rowsToRender = Array.from({ length: totalRows }, (_, index) =>
+    index < currentResults.length ? currentResults[index] : null
+  );
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -47,12 +67,7 @@ const ResultPage = () => {
             </tr>
           </thead>
           <tbody>
-            {currentResults.map((result) => (
-              <tr key={result._id}>
-                <td className="border px-8 py-4 w-20">{result.data}</td>
-                <td className="border px-8 py-4 w-20">{result.result}</td>
-              </tr>
-            ))}
+            {rowsToRender.map((result, index) => renderTableRow(result, index))}
           </tbody>
         </table>
         <div className="mt-4 flex justify-center">
