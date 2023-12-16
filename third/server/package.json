@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "npx tsc",
-    "prod": "node dist/src/index.js"
+    "prod": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
