@@ -17,6 +17,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.21.0
     version: 6.21.0(react-dom@18.2.0)(react@18.2.0)
+  react-tooltip:
+    specifier: ^5.25.0
+    version: 5.25.0(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/react':
@@ -305,6 +308,23 @@ packages:
     resolution: {integrity: sha512-qQfo2mxH5yVom1kacMtZZJFVdW+E70mqHMJvVg6WTLo+VBuQJ4TojZlfWBjK0ve5BdEeNAVxOsl/nvNMpJOaJA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@floating-ui/core@1.5.2:
+    resolution: {integrity: sha512-Ii3MrfY/GAIN3OhXNzpCKaLxHQfJF9qvwq/kEJYdqDxeIHa01K8sldugal6TmeeXl+WMvhv9cnVzUTaFFJF09A==}
+    dependencies:
+      '@floating-ui/utils': 0.1.6
+    dev: false
+
+  /@floating-ui/dom@1.5.3:
+    resolution: {integrity: sha512-ClAbQnEqJAKCJOEbbLo5IUlZHkNszqhuxS4fHAVxRPXPya6Ysf2G8KypnYcOTpx6I8xcgF9bbHb6g/2KpbV8qA==}
+    dependencies:
+      '@floating-ui/core': 1.5.2
+      '@floating-ui/utils': 0.1.6
+    dev: false
+
+  /@floating-ui/utils@0.1.6:
+    resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}
@@ -935,6 +955,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
+
+  /classnames@2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -1780,6 +1804,18 @@ packages:
     dependencies:
       '@remix-run/router': 1.14.0
       react: 18.2.0
+    dev: false
+
+  /react-tooltip@5.25.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/eGhmlwbHlJrVoUe75fb58rJfAy9aZnTvQAK9ZUPM0n9mmBGpEk13vDPiQVCeUuax+fBej+7JPsUXlhzaySc7w==}
+    peerDependencies:
+      react: '>=16.14.0'
+      react-dom: '>=16.14.0'
+    dependencies:
+      '@floating-ui/dom': 1.5.3
+      classnames: 2.3.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react@18.2.0:

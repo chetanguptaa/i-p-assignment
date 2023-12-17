@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 type Result = {
   _id: string;
@@ -35,7 +36,18 @@ const ResultPage = () => {
   const renderTableRow = (result: Result | null, index: number) => (
     <tr key={index}>
       {result?.data ? (
-        <td className="border px-8 py-4 w-20">{result.data}</td>
+        <td className="border px-8 py-4 w-20 overflow-hidden whitespace-nowrap">
+          <div
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={result.data}
+            data-tooltip-place="top"
+          >
+            {result.data.length > 6
+              ? `${result.data.slice(0, 6)}...`
+              : result.data}
+          </div>
+          <ReactTooltip id="my-tooltip" />
+        </td>
       ) : (
         <td className="border px-8 py-7 w-20">{""}</td>
       )}
