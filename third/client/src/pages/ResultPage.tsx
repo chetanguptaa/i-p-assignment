@@ -46,7 +46,15 @@ const ResultPage = () => {
               ? `${result.data.slice(0, 6)}...`
               : result.data}
           </div>
-          <ReactTooltip id="my-tooltip" />
+          <ReactTooltip
+            id="my-tooltip"
+            style={{
+              overflow: "hidden",
+              maxWidth: "350px",
+              wordWrap: "break-word",
+              whiteSpace: "wrap",
+            }}
+          />
         </td>
       ) : (
         <td className="border px-8 py-7 w-20">{""}</td>
